@@ -44,7 +44,7 @@
         @foreach ($materi as $row)
         <div class="col-sm-6">
             <div class="card p-4">
-                <iframe width="560" height="315" src="{{ $row->materi }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="{{ asset('data/materi_tertulis/' . $row->materi) }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <h4 class="my-3">{{ $row->judul_materi }}</h4>
                 <div class="card-body  p-0">
                     <p>{{ $row->judul_materi }}</p>

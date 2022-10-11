@@ -21,7 +21,12 @@
                 @if (count($pelajaran) > 0)
                 @foreach ($pelajaran as $row)
                 <div class="col-sm-4">
+                    @if ($row->status=='pending')
                     <a href="{{ URL::to('/detail_pelajaran/' . $row->pelajaran->id_pelajaran) }}" class="text-secondary">
+                        @elseif($row->status =='diterima')
+                        <a href="{{ URL::to('/materi/' . $row->pelajaran->id_pelajaran) }}" class="text-secondary">
+
+                    @endif
                         <div class="card books-card d-flex flex-column  border-0 soft-shadow">
                             <img class="card-image" src="{{ asset('data/gambar_sampul/' . $row->pelajaran->gambar) }}" alt="pelajaran">
                             <div class="books-capt p-4 d-flex flex-column">

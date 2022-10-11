@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MateriTertulis;
 use App\Models\MateriVideo;
+use App\Models\Pelajaran;
 use App\Models\PesertaPelajaran;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,7 +30,15 @@ class DosenController extends Controller
     {
         $data['liClass'] = 'liMateriVideo';
         $data['data_materi'] = 'data_materi_video';
-        $data['pelajaran'] = PesertaPelajaran::all();
+        $data['pelajaran'] = Pelajaran::where('id_dosen', auth()->user()->id)->get();
+        return view('pages.materi.index', $data);
+    }
+
+    public function materiTertulis()
+    {
+        $data['liClass'] = 'liMateriTertulis';
+        $data['data_materi'] = 'data_materi_tertulis';
+        $data['pelajaran'] = Pelajaran::where('id_dosen', auth()->user()->id)->get();
         return view('pages.materi.index', $data);
     }
 
@@ -51,14 +60,6 @@ class DosenController extends Controller
         $data['data_materi'] = 'data_materi_tertulis';
         $data['materi'] = MateriTertulis::where('id_pelajaran', $idPelajaran)->get();
         return view('pages.materi.materi_tertulis', $data);
-    }
-
-    public function materiTertulis()
-    {
-        $data['liClass'] = 'liMateriTertulis';
-        $data['data_materi'] = 'data_materi_tertulis';
-        $data['pelajaran'] = PesertaPelajaran::all();
-        return view('pages.materi.index', $data);
     }
 
     public function terimaPeserta($idPesertaPelajaran)

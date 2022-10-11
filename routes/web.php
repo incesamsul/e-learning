@@ -64,8 +64,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:mahasiswa']], function () {
     Route::get('/my_account', [UserController::class, 'myAccount']);
     Route::get('/pelajaran_terdaftar', [UserController::class, 'pelajaranTerdaftar']);
     Route::get('/pelajaran_saya', [UserController::class, 'pelajaranSaya']);
+    Route::get('/materi/{id_pelajaran}', [UserController::class, 'materi']);
+    Route::get('/materi_video/{id_pelajaran}', [UserController::class, 'materiVideo']);
+    Route::get('/materi_tertulis/{id_pelajaran}', [UserController::class, 'materiTertulis']);
+    Route::get('/virtual_coding/{id_pelajaran}', [UserController::class, 'virtualCoding']);
+    Route::get('/quiz/{id_pelajaran}', [UserController::class, 'quiz']);
     Route::post('/daftar_ke_pelajaran', [PesertaPelajaranController::class, 'store']);
-    Route::post('/checkout', [PinjamController::class, 'store']);
 });
 
 
