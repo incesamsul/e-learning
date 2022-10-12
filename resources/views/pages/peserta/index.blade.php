@@ -15,12 +15,12 @@
         @if (count($pelajaran) > 0)
         @foreach ($pelajaran as $row)
         <div class="col-sm-4">
-            <a href="{{ URL::to('/dosen/peserta/' . $row->pelajaran->id_pelajaran) }}" class="text-secondary">
+            <a href="{{ URL::to('/dosen/peserta/' . $row->id_pelajaran) }}" class="text-secondary">
                 <div class="card books-card d-flex flex-column  border-0 soft-shadow">
-                    <img class="card-image" src="{{ asset('data/gambar_sampul/' . $row->pelajaran->gambar) }}" alt="pelajaran">
+                    <img class="card-image" src="{{ asset('data/gambar_sampul/' . $row->gambar) }}" alt="pelajaran">
                     <div class="books-capt p-4 d-flex flex-column">
-                        <strong class="mb-3">{{ $row->pelajaran->nama_pelajaran }}</strong>
-                        <p>{{ $row->pelajaran->deskripsi }}</p>
+                        <strong class="mb-3">{{ $row->nama_pelajaran }}</strong>
+                        <p>{{ $row->deskripsi }}</p>
                     </div>
                 </div>
             </a>

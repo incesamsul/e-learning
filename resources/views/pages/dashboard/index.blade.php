@@ -6,19 +6,19 @@
         <div class="card full-height">
             <div class="card-body">
                 <div class="card-title">Statistik e-learning</div>
-                <div class="card-category">Info harian e-learning e-learningPangkep</div>
+                <div class="card-category">Info harian e-learning e-learning</div>
                 <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
                     <div class="px-2 pb-2 pb-md-0 text-center">
                         <div id="circles-1"></div>
-                        <h6 class="fw-bold mt-3 mb-0">Member</h6>
+                        <h6 class="fw-bold mt-3 mb-0">Dosen</h6>
                     </div>
                     <div class="px-2 pb-2 pb-md-0 text-center">
                         <div id="circles-2"></div>
-                        <h6 class="fw-bold mt-3 mb-0">Dipinjamkan</h6>
+                        <h6 class="fw-bold mt-3 mb-0">Mahasiswa</h6>
                     </div>
                     <div class="px-2 pb-2 pb-md-0 text-center">
                         <div id="circles-3"></div>
-                        <h6 class="fw-bold mt-3 mb-0">Dikembalikan</h6>
+                        <h6 class="fw-bold mt-3 mb-0">Maeteri</h6>
                     </div>
                 </div>
             </div>
@@ -27,15 +27,15 @@
     <div class="col-md-6">
         <div class="card full-height">
             <div class="card-body">
-                <div class="card-title">Statistik member</div>
+                <div class="card-title">Statistik </div>
                 <div class="row py-3">
                     <div class="col-md-4 d-flex flex-column justify-content-around">
                         <div>
-                            <h6 class="fw-bold text-uppercase text-success op-8">Total Member</h6>
+                            <h6 class="fw-bold text-uppercase text-success op-8">Total Materi</h6>
                             <h3 class="fw-bold">210</h3>
                         </div>
                         <div>
-                            <h6 class="fw-bold text-uppercase text-danger op-8">Total Buku</h6>
+                            <h6 class="fw-bold text-uppercase text-danger op-8">Total Pengguna</h6>
                             <h3 class="fw-bold">1203</h3>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
     <div class="col-md-4">
         <div class="card card-primary">
             <div class="card-header">
-                <div class="card-title">Buku dipinjam</div>
+                <div class="card-title">Pendaftar pelajaran</div>
                 <div class="card-category">March 25 - April 02</div>
             </div>
             <div class="card-body pb-0">
@@ -98,7 +98,7 @@
             <div class="card-body pb-0">
                 <div class="h1 fw-bold float-right text-warning">+7%</div>
                 <h2 class="mb-2">21</h2>
-                <p class="text-muted">Buku dikembalikan</p>
+                <p class="text-muted">Aktifitas pelajaran</p>
                 <div class="pull-in sparkline-fix">
                     <div id="lineChart"></div>
                 </div>

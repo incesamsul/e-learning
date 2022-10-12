@@ -87,7 +87,7 @@
         const kembali = document.querySelector("#kembali");
 
         kembali.addEventListener('click',()=>{
-            document.location.href = '/materi/3';
+            document.location.href = '/materi/' + '{{ $id_pelajaran }}';
         })
         btn.addEventListener("click", () => {
         var html = first.textContent;
