@@ -7,6 +7,7 @@ use App\Models\MateriVideo;
 use App\Models\Pelajaran;
 use App\Models\PesertaPelajaran;
 use App\Models\Quiz;
+use App\Models\SoalPG;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Filesystem;
@@ -68,7 +69,7 @@ class DosenController extends Controller
         $data['pages'] = 'data_soal';
         $data['liClass'] = 'liQuiz';
         $data['data_materi'] = 'data_data_quiz';
-        $data['quiz'] = Quiz::where('id_pelajaran', $idQuiz)->get();
+        $data['soal'] = SoalPG::where('id_quiz', $idQuiz)->get();
         return view('pages.quiz.data_soal', $data);
     }
 

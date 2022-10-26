@@ -95,6 +95,11 @@ Route::group(['middleware' => ['auth', 'ceklevel:Administrator,dosen']], functio
         Route::get('/data_materi_video/{id_pelajaran}', [DosenController::class, 'dataMateriVideo']);
         Route::get('/data_materi_tertulis/{id_pelajaran}', [DosenController::class, 'dataMateriTertulis']);
 
+        // CRUD MATERI SOAL
+        Route::post('/create_soal', [QuizController::class, 'store']);
+        Route::post('/update_soal', [QuizController::class, 'update']);
+        Route::get('/delete_soal/{id_quiz}', [QuizController::class, 'delete']);
+
         // CRUD MATERI QUIZ
         Route::post('/create_quiz', [QuizController::class, 'store']);
         Route::post('/update_quiz', [QuizController::class, 'update']);
