@@ -16,13 +16,13 @@ class DosenController extends Controller
 
     public function peserta()
     {
-        $data['pelajaran'] = PesertaPelajaran::all();
+        $data['pelajaran'] = Pelajaran::where('id_dosen', auth()->user()->id)->get();
         return view('pages.peserta.index', $data);
     }
 
-    public function pesertaPelajaran()
+    public function pesertaPelajaran($idPelajaran)
     {
-        $data['pelajaran'] = PesertaPelajaran::all();
+        $data['pelajaran'] = PesertaPelajaran::where('id_pelajaran',$idPelajaran)->get();
         return view('pages.peserta.peserta', $data);
     }
 

@@ -20,7 +20,7 @@
             </ul>
         </nav>
         <div class="copyright ml-auto">
-            e-learning PANGKEP
+            e-learning 
         </div>
     </div>
 </footer>

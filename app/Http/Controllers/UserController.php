@@ -52,6 +52,7 @@ class UserController extends Controller
 
     public function virtualCoding($idPelajaran)
     {
+        $data['id_pelajaran'] = $idPelajaran;
         $data['pelajaran'] = Pelajaran::where('id_pelajaran', $idPelajaran)->first();
         $data['materi'] = MateriTertulis::where('id_pelajaran', $idPelajaran)->get();
         return view('halaman_depan.virtual_coding', $data);
