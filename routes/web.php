@@ -16,6 +16,7 @@ use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\Penilai;
 use App\Http\Controllers\PesertaPelajaranController;
 use App\Http\Controllers\PinjamController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -88,8 +89,16 @@ Route::group(['middleware' => ['auth', 'ceklevel:Administrator,dosen']], functio
         Route::get('/batalkan_peserta/{id_peserta_pelajaran}', [DosenController::class, 'batalkanPeserta']);
         Route::get('/materi_video', [DosenController::class, 'MateriVideo']);
         Route::get('/materi_tertulis', [DosenController::class, 'MateriTertulis']);
+        Route::get('/quiz', [DosenController::class, 'quiz']);
+        Route::get('/quiz/{id_pelajaran}', [DosenController::class, 'dataQuiz']);
+        Route::get('/soal/{id_quiz}', [DosenController::class, 'soal']);
         Route::get('/data_materi_video/{id_pelajaran}', [DosenController::class, 'dataMateriVideo']);
         Route::get('/data_materi_tertulis/{id_pelajaran}', [DosenController::class, 'dataMateriTertulis']);
+
+        // CRUD MATERI QUIZ
+        Route::post('/create_quiz', [QuizController::class, 'store']);
+        Route::post('/update_quiz', [QuizController::class, 'update']);
+        Route::get('/delete_quiz/{id_quiz}', [QuizController::class, 'delete']);
 
         // CRUD MATERI VIDEO
         Route::post('/create_materi_video', [MateriVideoController::class, 'store']);

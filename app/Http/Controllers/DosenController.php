@@ -6,6 +6,7 @@ use App\Models\MateriTertulis;
 use App\Models\MateriVideo;
 use App\Models\Pelajaran;
 use App\Models\PesertaPelajaran;
+use App\Models\Quiz;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Filesystem;
@@ -22,7 +23,7 @@ class DosenController extends Controller
 
     public function pesertaPelajaran($idPelajaran)
     {
-        $data['pelajaran'] = PesertaPelajaran::where('id_pelajaran',$idPelajaran)->get();
+        $data['pelajaran'] = PesertaPelajaran::where('id_pelajaran', $idPelajaran)->get();
         return view('pages.peserta.peserta', $data);
     }
 
@@ -41,6 +42,36 @@ class DosenController extends Controller
         $data['pelajaran'] = Pelajaran::where('id_dosen', auth()->user()->id)->get();
         return view('pages.materi.index', $data);
     }
+
+    public function quiz()
+    {
+        $data['liClass'] = 'liQuiz';
+        $data['headerTitle'] = 'quiz';
+        $data['headerSubTitle'] = 'Selamat Datang | Aplikasi e-learning';
+        $data['pelajaran'] = Pelajaran::where('id_dosen', auth()->user()->id)->get();
+        return view('pages.quiz.index', $data);
+    }
+
+    public function dataQuiz($idPelajaran)
+    {
+        $data['id_pelajaran'] = $idPelajaran;
+        $data['pages'] = 'data_quiz';
+        $data['liClass'] = 'liQuiz';
+        $data['data_materi'] = 'data_data_quiz';
+        $data['quiz'] = Quiz::where('id_pelajaran', $idPelajaran)->get();
+        return view('pages.quiz.data_quiz', $data);
+    }
+
+    public function soal($idQuiz)
+    {
+        $data['id_quiz'] = $idQuiz;
+        $data['pages'] = 'data_soal';
+        $data['liClass'] = 'liQuiz';
+        $data['data_materi'] = 'data_data_quiz';
+        $data['quiz'] = Quiz::where('id_pelajaran', $idQuiz)->get();
+        return view('pages.quiz.data_soal', $data);
+    }
+
 
     public function dataMateriVideo($idPelajaran)
     {

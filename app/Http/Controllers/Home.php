@@ -37,12 +37,14 @@ class Home extends Controller
 
     public function detailPelajaran($idPelajaran = null)
     {
+
         if (!$idPelajaran) {
             return back();
         } else {
             $data['pelajaran'] = Pelajaran::where('id_pelajaran', $idPelajaran)->first();
         }
-        $data['sudah_daftar'] = PesertaPelajaran::where('id_pelajaran', $idPelajaran)->where('id_mahasiswa', auth()->user()->id)->first();
+        $idMhs = auth()->user() ? auth()->user()->id : 0;
+        $data['sudah_daftar'] = PesertaPelajaran::where('id_pelajaran', $idPelajaran)->where('id_mahasiswa', $idMhs)->first();
         return view('halaman_depan.detail_pelajaran', $data);
     }
 }
